@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using inher.Classes;
 
 namespace WpfApplication1
 {
@@ -20,7 +21,9 @@ namespace WpfApplication1
     /// </summary>
     public partial class MainWindow : Window
     {
-        private string[] vehicleTypes =  new string[]{"Car","Boat", "Bicycle"};
+        private string[] vehicleTypes = new string[] { "Car", "Boat", "Bicycle" };
+        private List<Vehicle> vehicleList = new List<Vehicle>();
+        private Vehicle underConstruction_Vehicle = new Vehicle();
         public MainWindow()
         {
             InitializeComponent();
@@ -38,9 +41,6 @@ namespace WpfApplication1
             {
                 case "Car":
                 {
-                    VehicleDefinitionGrid.RowDefinitions.Add(new RowDefinition());
-
-
                     break;
                 }
                 case "Boat":
@@ -56,15 +56,13 @@ namespace WpfApplication1
            
         }
 
-        private void SavedVehiclesList_Selected(object sender, RoutedEventArgs e)
-        {
+        
 
+        private void SaveClick(object sender, RoutedEventArgs e)
+        {
+            vehicleList.Add(underConstruction_Vehicle);
         }
 
-        //private void ComboBox_Loaded(object sender, RoutedEventArgs e)
-        //{
-        //    var combo = sender as ComboBox;
-        //    combo.ItemsSource =  
-        //}
+       
     }
 }

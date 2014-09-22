@@ -17,6 +17,9 @@ namespace inher.Classes
             this.Name = name;
             this.Speed = speed;
         }
+        public Vehicle()
+        {
+        }
         public virtual string Start()
         {
             return "an unknown vehicle is Starting";

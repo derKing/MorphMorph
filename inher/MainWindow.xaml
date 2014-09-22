@@ -24,15 +24,25 @@
                 <RowDefinition Height="Auto"/>
                 <RowDefinition Height="Auto"/>
             </Grid.RowDefinitions>
-            <TextBox x:Name="NameBox"  HorizontalAlignment="Left" Grid.Column="1" Grid.Row="0" Height="23" Width="120" Margin="5,5,0,0" TextWrapping="Wrap" Text="Name" VerticalAlignment="Top" />
-            <TextBox x:Name="SpeedBox" HorizontalAlignment="Left" Grid.Column="1" Grid.Row="1" Height="23" Width="120" Margin="5,5,0,0"  TextWrapping="Wrap" Text="Speed" VerticalAlignment="Top"  />
+            <TextBox x:Name="NameBox"  HorizontalAlignment="Left" Grid.Column="1" Grid.Row="0" Height="23" Width="120" Margin="5,5,0,0" TextWrapping="Wrap" Text="{Binding Name, FallbackValue='Name'}" VerticalAlignment="Top" />
+            <TextBox x:Name="SpeedBox" HorizontalAlignment="Left" Grid.Column="1" Grid.Row="1" Height="23" Width="120" Margin="5,5,0,0"  TextWrapping="Wrap" Text="{Binding Speed, FallbackValue='Speed'}" VerticalAlignment="Top"  />
             <!-- Vehicle specific rows will be added here-->
             
         </Grid>
         <Grid Grid.Row="0" Grid.RowSpan="3" Grid.Column="1" Width="Auto">
-            <ListBox x:Name="SavedVehiclesList" Grid.Row="1" Grid.Column="1" Width="Auto" Selected="SavedVehiclesList_Selected">
-                
-            </ListBox>
+            <ListView x:Name="SavedVehiclesList" Grid.Row="1" Grid.Column="1" Width="Auto" Item>
+                <ListView.ItemTemplate>
+                    <DataTemplate >
+                        <WrapPanel>
+                            <TextBlock Text="Name: " />
+                            <TextBlock Text="{Binding Name}" FontWeight="Bold" />
+                            <TextBlock Text=", " />
+                            <TextBlock Text="Speed: " />
+                            <TextBlock Text="{Binding Speed}" FontWeight="Bold" />
+                        </WrapPanel>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
         </Grid>
         
         
