@@ -13,16 +13,34 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace inher
+namespace WpfApplication1
 {
     /// <summary>
     /// Interaktionslogik für MainWindow.xaml
     /// </summary>
     public partial class MainWindow : Window
     {
+        private string[] vehicleTypes =  new string[]{"Car","Boat", "Bicycle"};
         public MainWindow()
         {
             InitializeComponent();
+            ComboBox.ItemsSource = vehicleTypes;
         }
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void ComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            string text = (e.AddedItems[0] as ComboBoxItem).Content as string;
+           
+        }
+
+        //private void ComboBox_Loaded(object sender, RoutedEventArgs e)
+        //{
+        //    var combo = sender as ComboBox;
+        //    combo.ItemsSource =  
+        //}
     }
 }
