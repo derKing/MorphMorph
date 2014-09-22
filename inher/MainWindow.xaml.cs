@@ -34,7 +34,31 @@ namespace WpfApplication1
         private void ComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             string text = (e.AddedItems[0] as ComboBoxItem).Content as string;
+            switch (text)
+            {
+                case "Car":
+                {
+                    VehicleDefinitionGrid.RowDefinitions.Add(new RowDefinition());
+
+
+                    break;
+                }
+                case "Boat":
+                {
+                    break;
+                }
+                case "Bicycle":
+                {
+                    break;
+                }
+            }
+
            
+        }
+
+        private void SavedVehiclesList_Selected(object sender, RoutedEventArgs e)
+        {
+
         }
 
         //private void ComboBox_Loaded(object sender, RoutedEventArgs e)
